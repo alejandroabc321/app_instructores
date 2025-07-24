@@ -1,0 +1,58 @@
+# Bytecode y cachés de Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Entornos virtuales
+env/
+venv/
+.venv/
+
+# Archivos de entorno (variables sensibles)
+.env
+.env.*
+
+# Archivos generados por el editor (VS Code, etc.)
+.vscode/
+
+# Subidas (archivos PDF de guías)
+uploads/
+*.pdf
+
+# Logs
+*.log
+
+# Archivos temporales y build
+*.egg-info/
+dist/
+build/
+downloads/
+sdist/
+parts/
+eggs/
+.eggs/
+lib/
+lib64/
+var/
+.installed.cfg
+
+# Cobertura y testing
+.coverage
+.pytest_cache/
+.tox/
+htmlcov/
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# Cachés de herramientas como mypy
+.mypy_cache/
+.dmypy.json
+
+# Checkpoints de Jupyter (por si los usas)
+.ipynb_checkpoints/
+
+# Archivos de pip antiguos
+pip-log.txt
+pip-delete-this-directory.txt

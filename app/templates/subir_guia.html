@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Subir Guía{% endblock %}
+{% block content %}
+<h2>Subir Guía de Aprendizaje</h2>
+<form method="POST" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+    <div class="mb-3">{{ form.nombre.label }} {{ form.nombre(class="form-control") }}</div>
+    <div class="mb-3">{{ form.descripcion.label }} {{ form.descripcion(class="form-control") }}</div>
+    <div class="mb-3">{{ form.programa.label }} {{ form.programa(class="form-select") }}</div>
+    <div class="mb-3">{{ form.archivo.label }} {{ form.archivo(class="form-control") }}</div>
+    <button type="submit" class="btn btn-primary">Subir Guía</button>
+</form>
+{% endblock %}

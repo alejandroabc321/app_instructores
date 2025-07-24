@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Registro{% endblock %}
+{% block content %}
+<h2>Registro de Instructor</h2>
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <div class="mb-3">
+        {{ form.nombre.label }} {{ form.nombre(class="form-control") }}
+    </div>
+    <div class="mb-3">
+        {{ form.correo.label }} {{ form.correo(class="form-control") }}
+    </div>
+    <div class="mb-3">
+        {{ form.regional.label }} {{ form.regional(class="form-select") }}
+    </div>
+    <button type="submit" class="btn btn-success">Registrarse</button>
+    <a href="{{ url_for('main.login') }}" class="btn btn-link">Volver al login</a>
+</form>
+{% endblock %}
