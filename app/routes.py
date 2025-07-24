@@ -82,10 +82,15 @@ Accede desde: http://localhost:5000/
 def subir_guia():
     form = GuiaForm()
     if form.validate_on_submit():
+
+        import os
+        uploads_path = os.path.join(os.getcwd(), 'uploads')
+        os.makedirs(uploads_path, exist_ok=True)  # crea la carpeta si no existe
+
         archivo = form.archivo.data
         filename = f"{uuid.uuid4().hex}.pdf"
-        path = os.path.join('uploads', filename)
-        archivo.save(path)
+        full_path = os.path.join(uploads_path, filename)
+        archivo.save(full_path)
 
         from .models import Programa
         programa_obj = Programa.objects(id=form.programa.data).first()
@@ -113,8 +118,7 @@ def listar_guias():
 @main.route('/ver_pdf/<filename>')
 @login_required
 def ver_pdf(filename):
-    import os
-    uploads_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), '..', 'uploads')
+    uploads_path = os.path.join(os.getcwd(), 'uploads')
     return send_from_directory(uploads_path, filename)
 
 
