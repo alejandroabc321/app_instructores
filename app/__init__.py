@@ -4,6 +4,7 @@ from flask_mail import Mail
 from flask_login import LoginManager
 from dotenv import load_dotenv
 import os
+from flask_cors import CORS
 
 
 load_dotenv()
@@ -13,6 +14,7 @@ login_manager = LoginManager()
 
 def create_app():
     app = Flask(__name__)
+    CORS(app)
     app.config['SECRET_KEY'] = os.getenv("SECRET_KEY")
 
     connect(host=os.getenv("MONGODB_URI"))
@@ -31,3 +33,7 @@ def create_app():
     app.register_blueprint(main)
 
     return app
+
+
+
+
